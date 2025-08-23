@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+     background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+  min-height: 100vh;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.site-header {
+  width: 100%;                   
+  background: linear-gradient(135deg, #1a321e, #639764);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+}
+
+.site-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #fffcfc;
+}
+
+.site-header .subtitle {
+  font-size: 1.3rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.site-header .description {
+  font-size: 1rem;
+  margin-top: 6px;
+  color: #e0f7e9;
+}
+
+.button a {
+  margin-top: 7px;
+  text-decoration: none;
+  background: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 14px;
+  font-size: 13px;
+}
+
+.button a:hover {
+  background: #1a5b1c;
+}
+
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+  
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 20px;
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+h3 {
+    color: #34495e;
+    margin: 15px 0 10px;
+}
+
+/* Streak Section */
+.streak-display {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.streak-count {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.streak-label {
+    color: #7f8c8d;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    font-size: 0.8rem;
+}
+
+.calendar-day.active {
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* Food Intake Section */
+.food-form {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+#food-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+#add-food {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.food-item:last-child {
+    border-bottom: none;
+}
+
+.food-nutrition {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.nutrition-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.nutrition-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.label {
+    font-weight: bold;
+}
+
+/* Water Tracker */
+.water-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glass-animation {
+    width: 100px;
+    height: 200px;
+    border: 3px solid #3498db;
+    border-radius: 0 0 25px 25px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.water-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #3498db;
+    transition: height 0.5s ease;
+    height: 0%;
+}
+
+.water-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.water-btn {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.water-total {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Charts */
+.chart-container {
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#custom-water-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#submit-custom-water {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .right-column {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .right-column {
+        grid-column: span 1;
+    }
+}
+

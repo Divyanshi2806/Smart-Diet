@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+  min-height: 100vh;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.site-header {
+  width: 100%;                   
+  background: linear-gradient(135deg, #1a321e, #639764);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+}
+
+.site-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.site-header .subtitle {
+  font-size: 1.3rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.site-header .description {
+  font-size: 1rem;
+  margin-top: 6px;
+  color: #e0f7e9;
+}
+
+.button a {
+  margin-top: 7px;
+  text-decoration: none;
+  background: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 14px;
+  font-size: 13px;
+}
+
+.button a:hover {
+  background: #1a5b1c;
+}
+
+.container{
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 20px;
+}
+.card {
+    background:#2d6a38; 
+    color:#fff; 
+    border-radius:14px; 
+    padding:20px; 
+    box-shadow:0 6px 18px rgba(0,0,0,.15); 
+    margin-bottom:20px;
+}  
+.card h2 {
+    margin-bottom:10px
+} 
