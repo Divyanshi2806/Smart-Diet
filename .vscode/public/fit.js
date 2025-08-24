@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize tracker
     updateGlass();
-    /*
+    
 generateCalendar();
-*/
+
 });
