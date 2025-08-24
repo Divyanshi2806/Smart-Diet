@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize variables
     let foodItems = [];
-    /*
     let waterIntake = 0;
     const maxWater = 2000; // 2L maximum for visualization
-*/
+
     // Initialize charts
     const caloriesChart = new Chart(
         document.getElementById('calories-chart'),
@@ -251,4 +250,5 @@ document.addEventListener('DOMContentLoaded', function () {
     updateGlass();
     /*
 generateCalendar();
-});*/
+*/
+});
