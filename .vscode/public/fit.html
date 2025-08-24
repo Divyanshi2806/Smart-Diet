@@ -14,7 +14,9 @@
     <div class="container">
         <header class="site-header">
             <div class="header-content">
-                <h1><pre>S M A R T  D I E T</pre></h1>
+                <h1>
+                    <pre>S M A R T  D I E T</pre>
+                </h1>
                 <p class="subtitle">Fitness Dashboard</p>
                 <p class="description">Track calories, workouts, and progress — stay on top of your journey.</p>
             </div>
@@ -71,7 +73,7 @@
                         </div>
                     </div>
                 </section>
-
+                <!--
                 <section class="water-tracker">
                     <h2>Water Intake</h2>
                     <div class="water-container">
@@ -88,23 +90,51 @@
                     </div>
                 </section>
             </div>
+-->
+<section>
+                <h1>Water Glass Tracker</h1>
+<div class="tracker">
+                <!-- Glass -->
+                <div class="glass">
+                    <div class="water" id="water"></div>
+                </div>
 
-            <!-- Right Column: Nutrition Charts -->
-            <div class="right-column">
-                <section class="nutrition-charts">
-                    <h2>Weekly Nutrition Overview</h2>
-                    <div class="chart-container">
-                        <canvas id="calories-chart"></canvas>
+                <!-- Controls -->
+                <div class="controls">
+                    <label for="goalInput" class="sr-only">Daily goal</label>
+                    <input type="number" id="goalInput" min="1" placeholder="Enter daily goal (glasses)" />
+                    <button onclick="setGoal()">Set Goal</button>
+
+                    <div class="button-group">
+                        <button onclick="drinkWater()">+1 Glass</button>
+                        <button onclick="removeWater()">-1 Glass</button>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="macros-chart"></canvas>
-                    </div>
-                </section>
-            </div>
+
+                    <div class="stats" id="stats">0 / 8 Glasses</div>
+                    <div class="message" id="message" style="display:none;">Yay! You completed your daily task 🎉</div>
+                </div>
+                </div>
+                </div>
+            </section>
+                <!-- Right Column: Nutrition Charts -->
+                <div class="right-column">
+                    <section class="nutrition-charts">
+                        <h2>Weekly Nutrition Overview</h2>
+                        <div class="chart-container">
+                            <canvas id="calories-chart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="macros-chart"></canvas>
+                        </div>
+                    </section>
+                </div>
+
+
+
+
         </main>
     </div>
-
-    <!-- Custom Water Modal -->
+    <!-- Custom Water Modal 
     <div class="modal" id="water-modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -113,7 +143,7 @@
             <button id="submit-custom-water">Add</button>
         </div>
     </div>
-
+-->
     <script src="fit.js"></script>
 </body>
 

@@ -200,6 +200,7 @@ h3 {
 }
 
 /* Water Tracker */
+/*
 .water-container {
     display: flex;
     flex-direction: column;
@@ -246,7 +247,7 @@ h3 {
     margin-top: 10px;
     font-weight: bold;
 }
-
+*/
 /* Charts */
 .chart-container {
     margin-bottom: 20px;
@@ -254,6 +255,7 @@ h3 {
 }
 
 /* Modal */
+/*
 .modal {
     display: none;
     position: fixed;
@@ -273,7 +275,7 @@ h3 {
     width: 300px;
     position: relative;
 }
-
+*/
 .close {
     color: #aaa;
     float: right;
@@ -281,7 +283,7 @@ h3 {
     font-weight: bold;
     cursor: pointer;
 }
-
+/*
 #custom-water-input {
     width: 100%;
     padding: 10px;
@@ -299,7 +301,7 @@ h3 {
     cursor: pointer;
     width: 100%;
 }
-
+*/
 /* Responsive Design */
 @media (max-width: 1024px) {
     .dashboard {
@@ -320,4 +322,81 @@ h3 {
         grid-column: span 1;
     }
 }
+/*water*/
+.tracker {
+  display: flex;
+  align-items: flex-start; /* Align top edges */
+  gap: 70px; /* Space between glass and controls */
+}
 
+.glass {
+  position: relative;
+  margin-left: 70px;
+  margin-top: 5px;
+  width: 120px;
+  height: 250px;
+  border: 6px solid #555;
+  border-radius: 6px 6px 20px 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.2);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #4fc3f7 0%, #0288d1 100%);
+  height: 0%;
+  transition: height 0.6s ease;
+  border-top: 2px solid rgba(255,255,255,0.6);
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0288d1;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0277bd;
+}
+
+.stats {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.message {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+  display: none;
+}
+
+input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
