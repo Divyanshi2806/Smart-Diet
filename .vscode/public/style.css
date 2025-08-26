@@ -14,7 +14,7 @@ body {
 
 body {
   background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover no-repeat fixed;
-  color: #e8f5e9; /* light greenish text for readability */
+  color: #e8f5e9; 
   line-height: 1.6;
   position: relative;
   min-height: 100vh;
@@ -24,13 +24,13 @@ body::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(41, 121, 44, 0.55); /* transparent green food overlay */
-  z-index: -1; /* keeps it behind content */
+  background: rgba(41, 121, 44, 0.55); 
+  z-index: -1; 
 }
 
 
  header {
- background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");  /* Change this to premium blue later if needed */
+ background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");  
   color: #1d1313;
   padding: 20px;
   text-align: center;
@@ -43,17 +43,16 @@ body {
   position: relative;
 }
 
-/* Transparent green overlay across whole page */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.55); /* premium transparent green */
+  background: rgba(0, 0, 0, 0.55); 
   z-index: -1;
 }
 
 header {
-  background: transparent; /* remove separate bg */
+  background: transparent; 
   padding: 40px 20px;
   text-align: center;
   color: #ffffff;
@@ -64,9 +63,8 @@ header h1,
 header p,
 header nav {
   position: relative;
-  z-index: 1; /* keeps text above overlay */
+  z-index: 1; 
 }
-
 
 header h1 {
   font-size: 4rem;
@@ -314,7 +312,6 @@ footer a:hover {
   border-radius: 50%;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 2rem;
@@ -331,13 +328,11 @@ footer a:hover {
   }
 }
 
-/*login form*/
 body{
     
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /*background:url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA);*/
     background-size: cover;
     background-position: center;
 }
@@ -350,7 +345,6 @@ body{
     color: #fffdfd;
     border-radius: 10px;
     padding: 30px 40px;
-
 }
 .wrapper h1{
     font-size: 36px;
@@ -384,7 +378,6 @@ body{
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-
 }
 .wrapper .remember-forgot{
     display: flex;
@@ -417,9 +410,6 @@ body{
     color: #000000;
     font-weight: 600;
 }
-
-
-/* Circle Button Top-Left */
 .login-btn {
   position: absolute;
   top: 20px;
@@ -443,7 +433,6 @@ body{
   background: #4CAF50;
 }
 
-/* Modal Background */
 .modal {
   display: none; 
   position: fixed;
@@ -453,18 +442,15 @@ body{
   background: rgba(0,0,0,0.6);
 }
 
-/* Modal Box */
-/* Modal Box - Centered */
 .modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  /* centers it */
+  transform: translate(-50%, -50%); 
   width: 400px;
   border-radius: 12px;
 }
 
-/* Close Button */
 .close {
   position: absolute;
   right: 15px;
@@ -474,5 +460,3 @@ body{
   cursor: pointer;
   color: #fff;
 }
-
-/*Login Form End*/

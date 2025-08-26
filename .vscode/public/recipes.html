@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="recipes.css">
 </head>
 <script>
-  // Recipe data (you can expand this for all recipes)
   const recipes = {
     "chickpea": {
       title: "Chickpea & Avocado Salad",
@@ -26,7 +25,6 @@
         "Toss and serve fresh."
       ]
     },
-    // Add more recipes here
     "quinoa": {
       title: "Mediterranean Quinoa Salad",
       img: "quinoasalad.jpg",
@@ -139,14 +137,11 @@
     },
   };
 
-  // Open modal
   function openModal(recipeId) {
     const recipe = recipes[recipeId];
     document.getElementById("modalTitle").innerText = recipe.title;
     document.getElementById("modalImage").src = recipe.img;
     document.getElementById("modalDescription").innerText = recipe.desc;
-
-    // Ingredients
     const ingList = document.getElementById("modalIngredients");
     ingList.innerHTML = "";
     recipe.ingredients.forEach(ing => {
@@ -155,7 +150,6 @@
       ingList.appendChild(li);
     });
 
-    // Steps
     const stepList = document.getElementById("modalSteps");
     stepList.innerHTML = "";
     recipe.steps.forEach(step => {
@@ -166,13 +160,9 @@
 
     document.getElementById("recipeModal").style.display = "flex";
   }
-
-  // Close modal
   function closeModal() {
     document.getElementById("recipeModal").style.display = "none";
   }
-
-  // Close modal if clicking outside
   window.onclick = function(event) {
     if (event.target === document.getElementById("recipeModal")) {
       closeModal();
@@ -190,18 +180,15 @@
       <a href="#soups">Soups</a>
     </nav>
   </header>
-<!--SALADS-->
     <section id="salads">
     <h2 style="text-align:center;">Salads</h2>
     <div class="recipes-container">
-      <!-- Recipe 1 -->
       <div class="recipe-card" id="salads">
         <img src="chickpeasalad.jpg" alt="Chickpea & Avocado Salad">
         <h3>Chickpea & Avocado Salad</h3>
         <p>Vegetarian • Creamy & Filling • 328 kcal per serving</p>
         <button onclick="openModal('chickpea')">View Details</button>
       </div>
-      <!-- Recipe 2 -->
       <div class="recipe-card" id="salads">
         <img src="quinoasalad.jpg" height="250" alt="Mediterranean Quinoa Salad">
         <pre><h3> 
@@ -209,7 +196,6 @@
         <p>Vegan • High Protein • 286 kcal per serving</p>
         <button onclick="openModal('quinoa')">View Details</button>
       </div>
-      <!-- Recipe 3 -->
       <div class="recipe-card" id="salads">
         <img src="rainbow.jpg" alt="Rainbow Crunch Salad">
         <h3>Rainbow Crunch Salad with Peanut Dressing</h3>
@@ -218,25 +204,21 @@
       </div>
     </div>
   </section>
-<!--SMOOTHIES-->
   <section id="smoothies">
     <h2 style="text-align:center;">Smoothies</h2>
     <div class="recipes-container">
-      <!-- Recipe 1 -->
       <div class="recipe-card" id="smoothies">
         <img src="Bananasmoothie.jpg" alt="Banana Peanut Butter Smoothie">
         <h3>Banana Peanut Butter Smoothie </h3>
         <p>High Protein • Filling • 270 kcal</p>
         <button onclick="openModal('bananasmoothie')">View Details</button>
       </div>
-      <!-- Recipe 2 -->
       <div class="recipe-card" id="smoothies">
         <img src="Blueberrysmoothie.jpg" alt="Berry Oats Smoothie">
         <h3>Berry Oats Smoothie</h3>
         <p>Antioxidant • Fiber • 310 kcal</p>
         <button onclick="openModal('berryoatsmoothie')">View Details</button>
       </div>
-      <!-- Recipe 3 -->
       <div class="recipe-card" id="smoothies">
         <img src="mangospinachsmoothie.jpg" alt="Mango Spinach Smoothie">
         <h3>Mango Spinach Smoothie</h3>
@@ -245,25 +227,21 @@
       </div>
     </div>
   </section>
-<!--SOUPS-->
   <section id="soups">
     <h2 style="text-align:center;">Soups</h2>
     <div class="recipes-container">
-      <!-- Recipe 1 -->
       <div class="recipe-card" id="soups">
         <img src="carrotgingersoup.png" alt="Carrot-Ginger Soup">
         <h3>Carrot-Ginger Soup</h3>
         <p>Boosts Immunity • Aids Digestion • 120 kcal per bowl</p>
         <button onclick="openModal('carrotgingersoup')">View Details</button>
       </div>
-      <!-- Recipe 2 -->
       <div class="recipe-card" id="soups">
         <img src="tomato-basil-soup.jpg" height="300" width="250" alt="Tomato-Basil Soup">
         <h3>Tomato-Basil Soup</h3>
         <p>Antioxidants • Weight Loss • 100 kcal per bowl</p>
         <button onclick="openModal('tomatobasilsoup')">View Details</button>
       </div>
-      <!-- Recipe 3 -->
       <div class="recipe-card" id="soups">
         <img src="spinachlentilsoup.jpg" height="300" width="240" alt="Spinach-Lentil Soup">
         <h3>Spinach-Lentil Soup</h3>

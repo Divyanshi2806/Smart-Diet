@@ -7,24 +7,6 @@
   <title>Your Diet Plans</title>
   <link rel="stylesheet" href="dietplans.css" />
   <link rel="shortcut icon" href="chatbot.png" type="image/png">
-  <style> 
-    
-  
-  
-  .row {display:flex; gap:12px; flex-wrap:wrap} 
-  .row label {flex:1 1 220px; display:flex; flex-direction:column; gap:6px; font-weight:600} 
-  input, select {padding:8px 10px; border-radius:8px; border:1px solid #cfd8dc; color:#000000;} 
-  .btn {background:#4CAF50; border:none; padding:10px 16px; border-radius:10px; cursor:pointer; color:#000000} 
-  .btn:hover {background:#3e8e41} 
-  #recommendations {background:#e8f5e9; color:#000; padding:14px; border-radius:10px; margin-top:12px} 
-  #recommendations img {max-width:100%; border-radius:12px; margin-top:12px;} 
-  a.back {display:inline-block; margin-bottom:16px; color:#FFEB3B; text-decoration:none; font-weight:700} 
-  a.back:hover {text-decoration:underline} 
-
-
-  </style>
-  
-
 </head>
 <body>
 
@@ -39,16 +21,6 @@
     </nav>
 </header>
 
-
-  <!--
-  <header>
-    <h1><pre>S m a r t   D i e t</pre></h1>
-    <p>Your personalized diet plans</p>
-    <nav>
-      <div class="button"><a href="start.html">Back</a></div>
-    </nav>
-  </header>
--->
   <main class="container">
      
     <div class="card">
@@ -80,7 +52,6 @@
       </form>
     </div>
 
-    
     <div class="card" id="chat-section" style="display:none">
       <h2>Ask for a Meal Plan</h2>
       <div class="row">
@@ -102,7 +73,6 @@
   <script>
     let userProfile = null;
 
-    // Save Profile
     document.getElementById("user-form").addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new FormData(e.target);
@@ -120,7 +90,6 @@
       document.getElementById("chat-section").style.display = "block";
     });
 
-    // Ask for Meal Plan
     document.getElementById("ask-btn").addEventListener("click", async () => {
       if (!userProfile) {
         alert("Please fill your profile first.");
