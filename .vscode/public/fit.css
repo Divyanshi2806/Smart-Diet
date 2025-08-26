@@ -107,7 +107,6 @@ h3 {
     margin: 15px 0 10px;
 }
 
-/* Streak Section */
 .streak-display {
     text-align: center;
     margin-bottom: 20px;
@@ -145,7 +144,6 @@ h3 {
     color: white;
 }
 
-/* Food Intake Section */
 .food-form {
     display: flex;
     margin-bottom: 15px;
@@ -198,84 +196,11 @@ h3 {
 .label {
     font-weight: bold;
 }
-
-/* Water Tracker */
-/*
-.water-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.glass-animation {
-    width: 100px;
-    height: 200px;
-    border: 3px solid #3498db;
-    border-radius: 0 0 25px 25px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.water-fill {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: #3498db;
-    transition: height 0.5s ease;
-    height: 0%;
-}
-
-.water-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.water-btn {
-    padding: 10px 15px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.water-total {
-    margin-top: 10px;
-    font-weight: bold;
-}
-*/
-/* Charts */
 .chart-container {
     margin-bottom: 20px;
     height: 200px;
 }
 
-/* Modal */
-/*
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    position: relative;
-}
-*/
 .close {
     color: #aaa;
     float: right;
@@ -283,26 +208,7 @@ h3 {
     font-weight: bold;
     cursor: pointer;
 }
-/*
-#custom-water-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
 
-#submit-custom-water {
-    padding: 10px 15px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
-*/
-/* Responsive Design */
 @media (max-width: 1024px) {
     .dashboard {
         grid-template-columns: 1fr 1fr;
@@ -322,11 +228,10 @@ h3 {
         grid-column: span 1;
     }
 }
-/*water*/
 .tracker {
   display: flex;
-  align-items: flex-start; /* Align top edges */
-  gap: 70px; /* Space between glass and controls */
+  align-items: flex-start; 
+  gap: 70px; 
 }
 
 .glass {

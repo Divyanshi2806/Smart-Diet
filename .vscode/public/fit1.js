@@ -24,14 +24,12 @@ function drinkWater() {
     updateGlass();
   }
 }
-
 function removeWater() {
   if (currentGlasses > 0) {
     currentGlasses--;
     updateGlass();
   }
 }
-
 function setGoal() {
   const newGoal = parseInt(goalInput.value);
   if (!isNaN(newGoal) && newGoal > 0) {
@@ -40,6 +38,4 @@ function setGoal() {
     updateGlass();
   }
 }
-
-// Initialize tracker
 updateGlass();
