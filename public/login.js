@@ -65,6 +65,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     });
 
     const data = await response.json();
+    console.log("Server response:", data);
     document.getElementById("registerResponse").textContent = data.message;
 
 
