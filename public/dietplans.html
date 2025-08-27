@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,23 +108,30 @@
         const recDiv = document.getElementById("recommendations");
         recDiv.innerHTML = ""; // clear old
 
-        if (data.success) {
-          // Text
+if (data.success) {
+          const meal = data.mealPlan; // this is an object
+
           const text = document.createElement("p");
-          text.innerText = data.mealPlan;
+          text.innerHTML = `
+            <strong>Meal Name:</strong> ${meal.mealName}<br>
+            <strong>Ingredients:</strong> ${meal.ingredients.join(", ")}<br>
+            <strong>Steps:</strong> ${meal.steps.join(" → ")}<br>
+            <strong>Calories:</strong> ${meal.nutrition.calories} kcal<br>
+            <strong>Protein:</strong> ${meal.nutrition.protein_g} g<br>
+            <strong>Notes:</strong> ${meal.notes}
+          `;
           recDiv.appendChild(text);
 
-          // Image
           const img = document.createElement("img");
           if (mealType.toLowerCase().includes("breakfast")) {
-  img.src = "https://source.unsplash.com/random/600x400/?breakfast,healthy,food";
-} else if (mealType.toLowerCase().includes("lunch")) {
-  img.src = "https://source.unsplash.com/random/600x400/?lunch,healthy,food";
-} else if (mealType.toLowerCase().includes("dinner")) {
-  img.src = "https://source.unsplash.com/random/600x400/?dinner,healthy,food";
-} else {
-  img.src = "https://source.unsplash.com/random/600x400/?healthy,food";
-}
+            img.src = "https://source.unsplash.com/random/600x400/?breakfast,healthy,food";
+          } else if (mealType.toLowerCase().includes("lunch")) {
+            img.src = "https://source.unsplash.com/random/600x400/?lunch,healthy,food";
+          } else if (mealType.toLowerCase().includes("dinner")) {
+            img.src = "https://source.unsplash.com/random/600x400/?dinner,healthy,food";
+          } else {
+            img.src = "https://source.unsplash.com/random/600x400/?healthy,food";
+          }
 
           recDiv.appendChild(img);
         } else {

@@ -1,8 +1,9 @@
+ 
 import express from "express";
+import path from "path";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import OpenAI from "openai";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -17,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/dietapp",
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("✅ MongoDB connected"))
+.then(() => console.log("MongoDB connected"))
 .catch(err => console.error("MongoDB error:", err));
 
 const userSchema = new mongoose.Schema({
@@ -32,22 +33,20 @@ app.post("/api/register", async (req, res) => {
   try {
     const { username, email, password, confirmPassword } = req.body;
 
-    if (!username || !email || !password || !confirmPassword) {
+    if (!username || !email || !password || !confirmPassword)
       return res.status(400).json({ message: "All fields are required" });
-    }
-    if (password !== confirmPassword) {
+
+    if (password !== confirmPassword)
       return res.status(400).json({ message: "Passwords do not match" });
-    }
-    if (password.length < 6) {
+
+    if (password.length < 6)
       return res.status(400).json({ message: "Password must be at least 6 characters" });
-    }
 
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
-    if (existingUser) {
+    if (existingUser)
       return res.status(400).json({
         message: existingUser.email === email ? "Email already registered" : "Username already taken",
       });
-    }
 
     const hashedPassword = await bcrypt.hash(password, 12);
     const user = new User({ username, email, password: hashedPassword });
@@ -73,9 +72,8 @@ app.post("/api/register", async (req, res) => {
 app.post("/api/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-    if (!username || !password) {
+    if (!username || !password)
       return res.status(400).json({ message: "Username and password are required" });
-    }
 
     const user = await User.findOne({ $or: [{ email: username }, { username }] });
     if (!user) return res.status(400).json({ message: "Invalid credentials" });
@@ -122,7 +120,15 @@ app.get("/api/user", verifyToken, async (req, res) => {
   }
 });
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// GEMINI_AI setup
+
+dotenv.config();
+
+import { GoogleGenerativeAI } from "@google/generative-ai";
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// Choose a model
+const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); 
 
 app.post("/api/getMealPlan", async (req, res) => {
   try {
@@ -131,8 +137,9 @@ app.post("/api/getMealPlan", async (req, res) => {
       return res.status(400).json({ success: false, error: "Missing required fields" });
     }
 
+    // Ask Gemini to return STRICT JSON so it’s easy to render on frontend
     const prompt = `
-You are a smart nutritionist. Based on the following details:
+You are a nutritionist. Create exactly ONE ${mealType} suggestion for:
 - Age: ${age}
 - Gender: ${gender}
 - Height: ${height} cm
@@ -141,24 +148,48 @@ You are a smart nutritionist. Based on the following details:
 - Fitness Goal: ${fitnessGoal}
 - Health Issues: ${healthIssues || "None"}
 
-Suggest a healthy ${mealType} with:
-1. Meal Name
-2. Ingredients
-3. Recipe (short steps)
-4. Approx Calories & Protein content
+Return ONLY valid JSON with this exact schema:
+{
+  "mealName": string,
+  "ingredients": string[],
+  "steps": string[],
+  "nutrition": {
+    "calories": number,
+    "protein_g": number
+  },
+  "notes": string
+}
+Do not include any extra text.
 `;
 
-    const response = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt }],
+    // Ask for JSON explicitly
+    const result = await geminiModel.generateContent({
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: { responseMimeType: "application/json" },
     });
 
-    res.json({ success: true, mealPlan: response.choices[0].message.content });
+    const text = result.response.text(); // JSON string
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      // Fallback: if model didn’t return clean JSON, wrap as plain text
+      return res.json({ success: true, raw: text });
+    }
+
+    return res.json({ success: true, mealPlan: data });
   } catch (error) {
-    console.error("MealPlan error:", error.message);
-    res.status(500).json({ success: false, error: "Failed to fetch meal plan" });
+    console.error("MealPlan error (Gemini):", error?.message || error);
+    return res.status(500).json({ success: false, error: "Failed to fetch meal plan" });
   }
 });
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
