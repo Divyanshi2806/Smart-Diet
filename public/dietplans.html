@@ -98,7 +98,7 @@
       const mealType = document.getElementById("meal-request").value || "breakfast";
 
       try {
-        const response = await fetch("https://smart-diet-79ge.onrender.com/api/getMealPlan", {
+        const response = await fetch("https://smart-diet-tnhp.onrender.com/api/getMealPlan", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ...userProfile, mealType }),
