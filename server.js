@@ -9,6 +9,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 dotenv.config();
+console.log("Mongo URI =>", process.env.MONGODB_URI);
 
 const app = express();
 app.use(cors({ origin: "*" }));
