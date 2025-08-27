@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diet Food </title>
-  <link rel="shortcut icon" href="chatbot.png" type="image/png">
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -13,13 +12,12 @@
     <h1><pre>S M A R T  D I E T</pre></h1>
     <p>Eat Healthy • Live Better</p>
     <div class="login-btn">
-      <button onclick="openLogin()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="white" viewBox="0 0 24 24">
-          <path
-            d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
-        </svg>
-      </button>
-    </div>
+  <button onclick="openLogin()">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="white" viewbox="0 0 24 24">
+      <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+    </svg>
+  </button>
+</div>
     <nav>
       <a href="#features">Features</a>
       <a href="#recipes">Recipes</a>
@@ -27,16 +25,19 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
+  <!-- Hero Section -->
   <section class="hero">
     <h2>Personalized Diet Plans for You</h2>
     <p>𝗧𝗿𝗮𝗰𝗸 𝗰𝗮𝗹𝗼𝗿𝗶𝗲𝘀, 𝗱𝗶𝘀𝗰𝗼𝘃𝗲𝗿 𝗵𝗲𝗮𝗹𝘁𝗵𝘆 𝗿𝗲𝗰𝗶𝗽𝗲𝘀, 𝗮𝗻𝗱 𝘀𝘁𝗮𝘆 𝗳𝗶𝘁 𝘄𝗶𝘁𝗵 𝗲𝗮𝘀𝗲..</p>
     <button onclick="getStarted()">Get Started</button>
   </section>
 
+  <!-- Features Section -->
   <section id="features">
     <h2 style="text-align:center;">Features</h2>
-    <div class="features">     
-      <div class="card">  
+    <div class="features">
+      <div class="card">
         <h3>🍎 Personalized Diet</h3>
         <p>Custom meal plans based on your health goals.</p>
       </div>
@@ -55,6 +56,7 @@
     </div>
   </section>
 
+  <!-- Recipes Section -->
   <section id="recipes">
     <h2 style="text-align:center;">Popular Diet Recipes</h2>
     <div class="recipes">
@@ -68,7 +70,7 @@
         <img src="smoothie.jpg" alt="Smoothie">
         <h3>Green Smoothie</h3>
         <p>90 Calories • Detox</p>
-        
+        <button></button>
       </div>
       <div class="card">
         <img src="finalrec.png" alt="">
@@ -76,12 +78,12 @@
         <p>Calories • Protein Rich</p>
         <div class = "button">
         <a href="recipes.html"> Recipes </a>
-        
-        </div>
-      </div> 
-    </div> 
+      </div>
+      </div> <!-- ✅ Fixed: Closing div for last card -->
+    </div> <!-- ✅ Closing recipes container -->
   </section>
 
+  <!-- Testimonials Section -->
   <section id="testimonials">
     <h2 style="text-align:center;">What Our Users Say</h2>
     <div class="testimonials">
@@ -100,53 +102,97 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer id="contact">
+    <p>Stay Connected with Us</p>
+    <a href="#">Instagram</a> | 
+    <a href="#">Twitter</a>
+    <p style="margin-top:10px;">&copy; 2025 Smart Diet. All rights reserved.</p>
+  </footer>
+
+    <!-- Login Circle Button (top-left) -->
   <div class="login-btn">
     <button onclick="openLogin()"><i class="bx bxs-user"></i></button>
   </div>
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLogin()">&times;</span>
+    <div class="wrapper">
+      <form id="loginForm">
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" id="username" placeholder="Username / E-mail id" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" id="password" placeholder="Password" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="remember-forgot">
+              <label><input type="checkbox" /> Remember me </label>
+              <a href="#">Forgot password?</a>
+            </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
 
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeLogin()">&times;</span>
-
-      <div class="wrapper">
-        <form action="">
-          <h1>Login</h1>
-          <div class="input-box">
-            <input type="text" placeholder="Username / E-mail id" required />
-            <i class="bx bxs-user"></i>
-          </div>
-          <div class="input-box">
-            <input type="password" placeholder="Password" required />
-            <i class="bx bxs-lock-alt"></i>
-          </div>
-          <div class="remember-forgot">
-            <label><input type="checkbox" /> Remember me </label>
-            <a href="#">Forgot password?</a>
-          </div>
-          <button type="submit" class="btn">Login</button>
-        </form>
-      </div>
+      <p style="text-align:center; margin-top:15px;">
+        Don’t have an account?
+        <button type="button" onclick="switchToRegister()" style="background:none;border:none;color:#ff9800;cursor:pointer;">
+          Register
+        </button>
+      </p>
+      <div id="apiResponse"></div>
     </div>
   </div>
+</div>
 
-  <script>
-    function openLogin() {
-      document.getElementById("loginModal").style.display = "block";
-    }
-    function closeLogin() {
-      document.getElementById("loginModal").style.display = "none";
-    }
-    window.onclick = function (event) {
-      let modal = document.getElementById("loginModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
-  
+<!-- Register Modal (completely separate) -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeRegister()">&times;</span>
+    <div class="wrapper">
+      <form id="registerForm">
+        <h1>Register</h1>
+        <div class="input-box">
+          <input type="text" id="reg-username" placeholder="Username" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="email" id="reg-email" placeholder="E-mail" required />
+          <i class="bx bxs-envelope"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" id="reg-password" placeholder="Password" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" id="reg-confirm" placeholder="Confirm Password" required />
+          <i class="bx bxs-lock"></i>
+        </div>
+        <button type="submit" class="btn">Register</button>
+      </form>
+
+      <p style="text-align:center; margin-top:15px;">
+        Already have an account?
+        <button type="button" onclick="switchToLogin()" style="background:none;border:none;color:#ff9800;cursor:pointer;">
+          Login
+        </button>
+      </p>
+      <div id="registerResponse"></div>
+    </div>
+  </div>
+</div>
+
+    <script src="login.js"></script>
+
+    
+  <!-- Chatbot Button -->
   <div id="chatbot-button">
     <img src="chatbot.png" alt="chatbot">
   </div>
+
+  <!-- Chatbot Container-->
 
   <div id="chatbot-container">
     <div id="chatbot-header">
@@ -162,49 +208,8 @@
     </div>
   </div>
 
-<section style="display:flex; flex-direction:column; align-items:center; justify-content:center; 
-                 padding:40px;  text-align:center;">
-
-  <h2 style="color:#f4f8f4; font-size:2rem; font-weight:bold; margin-bottom:10px;">
-     COMING SOON
-  </h2>
-  <p style="color:#fbfbfb; font-size:1.1rem; margin-bottom:30px; max-width:700px;">
-    We’re constantly improving <strong>Smart Diet</strong> to make healthy living even easier.  
-    Here’s what’s next on our roadmap:
-  </p>
-  <div style="display:flex; justify-content:center; align-items:stretch; 
-              gap:25px; flex-wrap:wrap; max-width:900px;">
-    <div style="background:#fff; padding:25px; border-radius:16px; width:260px; 
-                box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.2s;">
-      <h3 style="font-size:1.3rem; color:#2e7d32; margin-bottom:10px;">📱 Food Scanner</h3>
-      <p style="color:#555; font-size:0.95rem;">
-        Scan packaged food items with your phone camera to log nutrition instantly.
-      </p>
-    </div>
-    <div style="background:#fff; padding:25px; border-radius:16px; width:260px; 
-                box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.2s;">
-      <h3 style="font-size:1.3rem; color:#2e7d32; margin-bottom:10px;">⌚ Wearable Sync</h3>
-      <p style="color:#555; font-size:0.95rem;">
-        Connect with Google Fit, Fitbit, and smartwatches to auto-track calories & steps.
-      </p>
-    </div>
-    <div style="background:#fff; padding:25px; border-radius:16px; width:260px; 
-                box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.2s;">
-      <h3 style="font-size:1.3rem; color:#2e7d32; margin-bottom:10px;">🏆 Community Challenges</h3>
-      <p style="color:#555; font-size:0.95rem;">
-        Compete with friends in fun health challenges to stay motivated and consistent.
-      </p>
-    </div>
-  </div>
-</section>
-  <footer id="contact">
-    <p>Stay Connected with Us</p>
-    <a href="#">Facebook</a> | 
-    <a href="#">Instagram</a> | 
-    <a href="#">Twitter</a>
-    <p style="margin-top:10px;">&copy; 2025 Diet Food. All rights reserved.</p>
-  </footer>
   <script src="script.js"></script>
   <script src="bot.js"></script>
+
 </body>
 </html>

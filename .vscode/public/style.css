@@ -13,7 +13,7 @@ body {
 }
 
 body {
-  background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover no-repeat fixed;
+  background: url("background.jpg") center/cover no-repeat fixed;
   color: #e8f5e9; 
   line-height: 1.6;
   position: relative;
@@ -30,14 +30,14 @@ body::before {
 
 
  header {
- background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");  
+ background: url("background.jpg");  
   color: #1d1313;
   padding: 20px;
   text-align: center;
  }
 
 body {
-  background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover no-repeat fixed;
+  background: url("background.jpg") center/cover no-repeat fixed;
   color: #ffffff;
   line-height: 1.6;
   position: relative;
