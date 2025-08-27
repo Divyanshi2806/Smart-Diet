@@ -64,12 +64,14 @@ document.getElementById('registerForm').addEventListener('submit', async functio
       body: JSON.stringify({ username, email, password, confirmPassword })
     });
 
-    if (!response.ok) {
-      throw new Error(data.message || 'Registration failed');
-    }
     const data = await response.json();
     document.getElementById("registerResponse").textContent = data.message;
 
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Registration failed');
+    }
+    
     showResponse(responseDiv, 'Registration successful! Redirecting...', 'success');
     
     localStorage.setItem('token', data.token);
