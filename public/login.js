@@ -54,7 +54,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
   
   try {
     const submitBtn = document.querySelector('#registerForm .btn');
-    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Registering...';
     submitBtn.disabled = true;
 
@@ -65,7 +64,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     });
 
     const data = await response.json();
-    console.log("Server response:", data);
+    console.log("Register API response:", data);
     document.getElementById("registerResponse").textContent = data.message;
 
 
@@ -74,7 +73,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     }
     
     showResponse(responseDiv, 'Registration successful! Redirecting...', 'success');
-    
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
     
@@ -107,19 +105,17 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
   
   try {
     const submitBtn = document.querySelector('#loginForm .btn');
-    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Logging in...';
     submitBtn.disabled = true;
 
     const response = await fetch(`${API_BASE_URL}/login`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ username, password })
     });
 
     const data = await response.json();
+    console.log("Login API response:", data);
 
     if (!response.ok) {
       throw new Error(data.message || 'Login failed');
