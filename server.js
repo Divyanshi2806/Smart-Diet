@@ -13,7 +13,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// -------------------- MongoDB Connection --------------------
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/dietapp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -21,7 +20,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/dietapp",
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("MongoDB error:", err));
 
-// -------------------- User Schema --------------------
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
@@ -30,9 +28,6 @@ const userSchema = new mongoose.Schema({
 });
 const User = mongoose.model("User", userSchema);
 
-// -------------------- Auth Routes --------------------
-
-// Register
 app.post("/api/register", async (req, res) => {
   try {
     const { username, email, password, confirmPassword } = req.body;
@@ -75,7 +70,6 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
-// Login
 app.post("/api/login", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -106,7 +100,6 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-// Middleware to verify token
 const verifyToken = (req, res, next) => {
   const token = req.header("Authorization")?.replace("Bearer ", "");
   if (!token) return res.status(401).json({ message: "No token, authorization denied" });
@@ -120,7 +113,6 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-// Example protected route
 app.get("/api/user", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.userId).select("-password");
@@ -130,7 +122,6 @@ app.get("/api/user", verifyToken, async (req, res) => {
   }
 });
 
-// -------------------- Meal Plan API --------------------
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 app.post("/api/getMealPlan", async (req, res) => {
@@ -169,6 +160,5 @@ Suggest a healthy ${mealType} with:
   }
 });
 
-// -------------------- Start Server --------------------
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));

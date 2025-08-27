@@ -7,7 +7,7 @@
 }
 
  header {
- background: url('Screenshot (363).png');  /* Change this to premium blue later if needed */
+ background: url('Screenshot (363).png');  
   color: #1d1313;
   padding: 20px;
   text-align: center;
@@ -20,18 +20,16 @@ body {
   position: relative;
   font-size: larger;
 }
-
-/* Transparent green overlay across whole page */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.55); /* premium transparent green */
+  background: rgba(0, 0, 0, 0.55); 
   z-index: -1;
 }
 
 header {
-  background: transparent; /* remove separate bg */
+  background: transparent; 
   padding: 20px 10px;
   text-align: center;
   color: #ffffff;
@@ -42,10 +40,8 @@ header h1,
 header p,
 header nav {
   position: relative;
-  z-index: 1; /* keeps text above overlay */
+  z-index: 1; 
 }
-
-
 header h1 {
   font-size: 4rem;
   font-weight: bold;
@@ -130,9 +126,8 @@ nav a:hover {
   background: #45a049;
 }
 
-/* Modal Background */
 .modal {
-  display: none; /* Hidden by default */
+  display: none; 
   position: fixed;
   z-index: 1000;
   left: 0; top: 0;
@@ -142,7 +137,6 @@ nav a:hover {
   align-items: center;
 }
 
-/* Modal Box */
 .modal-content {
   background: #fff;
   -webkit-text-fill-color: black;
@@ -153,11 +147,10 @@ nav a:hover {
   text-align: left;
   box-shadow: 0 6px 18px rgba(0,0,0,0.3);
   animation: fadeIn 0.3s ease;
-  max-height: 80vh;      /* limit height to 80% of screen */
-  overflow-y: auto;      /* make inside scrollable */
+  max-height: 80vh;      
+  overflow-y: auto;     
  }
  
-/* Close Button */
 .close-btn {
   float: right;
   font-size: 24px;

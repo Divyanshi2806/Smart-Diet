@@ -1,8 +1,4 @@
- 
-// API Base URL - Update this to your server URL
-const API_BASE_URL = 'http://localhost:5000/api';
-
-// ========== LOGIN MODAL ==========
+ const API_BASE_URL = 'http://localhost:5000/api';
 function openLogin() {
   document.getElementById("loginModal").style.display = "block";
 }
@@ -10,39 +6,28 @@ function openLogin() {
 function closeLogin() {
   document.getElementById("loginModal").style.display = "none";
 }
-
-// ========== REGISTER MODAL ==========
 function openRegister() {
   document.getElementById("registerModal").style.display = "block";
 }
-
 function closeRegister() {
   document.getElementById("registerModal").style.display = "none";
 }
-
-// Switch from Login → Register
 function switchToRegister(event) {
   if (event) event.preventDefault();
   closeLogin();
   openRegister();
 }
-
-// Switch from Register → Login
 function switchToLogin(event) {
   if (event) event.preventDefault();
   closeRegister();
   openLogin();
 }
-
-// Close modal if clicking outside of box
 window.onclick = function(event) {
   if (event.target.classList.contains("modal")) {
     closeLogin();
     closeRegister();
   }
 };
-
-// ========== REGISTER FORM SUBMISSION ==========
 document.getElementById('registerForm').addEventListener('submit', async function(event) {
   event.preventDefault();
   
@@ -52,7 +37,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
   const confirmPassword = document.getElementById('reg-confirm').value;
   const responseDiv = document.getElementById('registerResponse');
   
-  // Basic validation
   if (!username || !email || !password || !confirmPassword) {
     showResponse(responseDiv, 'Please fill in all fields', 'error');
     return;
@@ -88,14 +72,12 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     showResponse(responseDiv, 'Registration successful! Redirecting...', 'success');
     
-    // Save token to localStorage
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
     
     setTimeout(() => {
       closeRegister();
       alert(`Welcome ${data.user.username}! Registration successful.`);
-      // You can redirect or update UI here
     }, 1500);
     
   } catch (error) {
@@ -108,7 +90,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
   }
 });
 
-// ========== LOGIN FORM SUBMISSION ==========
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
   event.preventDefault();
   
@@ -142,15 +123,12 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     }
     
     showResponse(apiResponse, 'Login successful! Redirecting...', 'success');
-    
-    // Save token to localStorage
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
     
     setTimeout(() => {
       closeLogin();
       alert(`Welcome back ${data.user.username}!`);
-      // You can redirect or update UI here
     }, 1500);
     
   } catch (error) {
@@ -162,8 +140,6 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     submitBtn.disabled = false;
   }
 });
-
-// Helper: Show API response
 function showResponse(element, message, type) {
   element.textContent = message;
   element.className = type;
@@ -174,15 +150,12 @@ function showResponse(element, message, type) {
   }, 5000);
 }
 
-// Check if user is logged in on page load
 window.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('token');
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   
   if (token && user.username) {
-    // Update UI to show logged in state
     console.log(`User ${user.username} is logged in`);
-    // You can update the login button to show user info
   }
 });
  

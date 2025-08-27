@@ -1,4 +1,3 @@
-// diet.js
 document.addEventListener("DOMContentLoaded", () => {
   const askButton = document.getElementById("askButton");
 
