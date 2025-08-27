@@ -1,4 +1,4 @@
- const API_BASE_URL = 'http://localhost:5000/api';
+ const API_BASE_URL = 'https://smart-diet-79ge.onrender.com/api';
 function openLogin() {
   document.getElementById("loginModal").style.display = "block";
 }
