@@ -14,7 +14,7 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/dietapp", {
+mongoose.connect(process.env.MONGODB_URI || {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
