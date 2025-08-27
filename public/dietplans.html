@@ -85,7 +85,7 @@
         healthIssues: formData.get("healthIssue"),
       };
 
-      alert("✅ Profile saved!");
+      alert("Profile saved!");
       document.getElementById("chat-section").style.display = "block";
     });
 
@@ -106,10 +106,10 @@
 
         const data = await response.json();
         const recDiv = document.getElementById("recommendations");
-        recDiv.innerHTML = ""; // clear old
+        recDiv.innerHTML = "";
 
 if (data.success) {
-          const meal = data.mealPlan; // this is an object
+          const meal = data.mealPlan;
 
           const text = document.createElement("p");
           text.innerHTML = `

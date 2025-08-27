@@ -120,14 +120,11 @@ app.get("/api/user", verifyToken, async (req, res) => {
   }
 });
 
-// GEMINI_AI setup
-
 dotenv.config();
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Choose a model
 const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); 
 
 app.post("/api/getMealPlan", async (req, res) => {
@@ -137,7 +134,6 @@ app.post("/api/getMealPlan", async (req, res) => {
       return res.status(400).json({ success: false, error: "Missing required fields" });
     }
 
-    // Ask Gemini to return STRICT JSON so it’s easy to render on frontend
     const prompt = `
 You are a nutritionist. Create exactly ONE ${mealType} suggestion for:
 - Age: ${age}
@@ -162,18 +158,17 @@ Return ONLY valid JSON with this exact schema:
 Do not include any extra text.
 `;
 
-    // Ask for JSON explicitly
     const result = await geminiModel.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       generationConfig: { responseMimeType: "application/json" },
     });
 
-    const text = result.response.text(); // JSON string
+    const text = result.response.text(); 
     let data;
     try {
       data = JSON.parse(text);
     } catch (e) {
-      // Fallback: if model didn’t return clean JSON, wrap as plain text
+
       return res.json({ success: true, raw: text });
     }
 
